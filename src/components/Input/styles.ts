@@ -5,6 +5,7 @@ import styled, { css } from "styled-components/native";
 export const Container = styled(TextInput)`
   min-height: 48px;
   min-width: 48px;
+  margin:10px;
 
   ${({ theme }) => css`
     border: 2px solid ${theme.COLORS.ORANGE_500};

@@ -18,6 +18,8 @@ export default {
     GRAY_300: "#7C7C8A",
     GRAY_200: "#C4C4CC",
     GRAY_100: "#E1E1E6",
+
+    BLACK: "#000000",
   },
   FONT_FAMILY: {
     REGULAR: "Roboto_400Regular",
@@ -27,6 +29,7 @@ export default {
     SM: 14,
     MD: 16,
     LG: 18,
+    LGX: 20,
     XL: 24,
   },
 };
