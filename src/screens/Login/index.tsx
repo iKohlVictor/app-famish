@@ -1,13 +1,30 @@
+import { Input } from "@components/Input";
 import { Button } from "@components/Button";
-import { SInput } from "@components/Input/styles";
-import { Container } from "./styles";
+import { ButtonIcon } from "@components/ButtonIcon";
 
+import logoImage from "@assets/logo.png";
+
+import { Container, Subtitle, Logo, Content, Form } from "./styles";
+import { FlatButton } from "@components/Flat-Button";
 export function Login() {
   return (
     <Container>
-      <SInput placeholder="E-mail" />
-      <SInput placeholder="Senha" />
-      <Button label="ACESSAR" />
+      <Content>
+        <Logo source={logoImage} />
+        <Subtitle> Olá seja bem vindo(a) ao Famish</Subtitle>
+      </Content>
+
+      <Input
+        placeholder="E-mail"
+        autoCorrect={false}
+        keyboardType="email-address"
+      />
+
+      <Input placeholder="Senha" keyboardType="visible-password" />
+
+      <Button title="ACESSAR" />
+
+      <FlatButton label="Esqueceu sua senha?" />
     </Container>
   );
 }

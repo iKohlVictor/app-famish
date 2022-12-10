@@ -1,17 +1,34 @@
-import styled from "styled-components/native";
+import styled, { css } from "styled-components/native";
+import { TouchableOpacity } from "react-native";
 
-export const ButtonComponent = styled.TouchableOpacity`
-  background-color: ${({ theme }) => theme.COLORS.ORANGE_600};
-  border-radius: 15px;
-  width: 350px;
-  height: 50px;
-  align-items: center;
+export type ButtonTypeStyleProps = "PRIMARY" | "SECONDARY" | "WARN";
+
+type Props = {
+  type: ButtonTypeStyleProps;
+};
+
+export const Container = styled(TouchableOpacity)<Props>`
+  min-height: 56px;
+  min-width: 56px;
+
+  background-color: ${({ theme, type }) =>
+    type === "PRIMARY"
+      ? theme.COLORS.ORANGE_600
+      : type === "SECONDARY"
+      ? theme.COLORS.GREEN_DARK
+      : theme.COLORS.RED_DARK};
+
+  border-radius: 6px;
+
   justify-content: center;
+  align-items: center;
 `;
 
-export const ButtonText = styled.Text`
-  font-size: 24px;
-  color: ${({ theme }) => theme.COLORS.WHITE};
-  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
-  font-weight: 500;
+export const Title = styled.Text`
+  text-transform: uppercase;
+  ${({ theme }) => css`
+    font-size: ${theme.FONT_SIZE.MD}px;
+    color: ${theme.COLORS.WHITE};
+    font-family: ${theme.FONT_FAMILY.BOLD};
+  `};
 `;

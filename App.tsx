@@ -7,7 +7,8 @@ import { StatusBar } from "react-native";
 import { ThemeProvider } from "styled-components";
 
 import theme from "@theme/index";
-import { Login } from "@screens/Login";
+
+import { NewUser } from "@screens/NewUser";
 import { Loading } from "@components/Loading";
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -22,7 +23,7 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       />
-      {fontsLoaded ? <Login></Login> : <Loading></Loading>}
+      {fontsLoaded ? <NewUser /> : <Loading />}
     </ThemeProvider>
   );
 }
