@@ -1,23 +1,52 @@
-import { Container, Content, Subtitle, Logo } from "./styles";
+import { Container } from "./styles";
+
 import { Header } from "@components/Header";
-import logoImage from "@assets/logo.png";
+
+import { FlatList, ImageSourcePropType } from "react-native";
+import { useState } from "react";
+
+import user from "@assets/userIcon.png";
+import { ListUsers } from "@components/ListUsers";
+import { Content } from "@screens/Login/styles";
+import { Input } from "@components/Input";
+
+export class IUsers {
+  id!: string;
+  name!: string;
+  image!: ImageSourcePropType;
+}
 
 export function Users() {
+  const [users, setMenus] = useState<IUsers[]>([
+    {
+      id: "1",
+      name: "Fernando Victor",
+      image: user,
+    },
+    {
+      id: "2",
+      name: "Naarah Oliveira",
+      image: user,
+    },
+    {
+      id: "3",
+      name: "Ian kohl",
+      image: user,
+    },
+  ]);
+
   return (
     <Container>
       <Header title="Usuários" />
-      <Content>
-        <Logo source={logoImage} />
-        <Subtitle> Usuário 1</Subtitle>
-      </Content>
-      <Content>
-        <Logo source={logoImage} />
-        <Subtitle> Usuário 2</Subtitle>
-      </Content>
-      <Content>
-        <Logo source={logoImage} />
-        <Subtitle> Usuário 3</Subtitle>
-      </Content>
+        <Input placeholder="Pesquisar">
+        </Input>
+      <FlatList
+        data={users}
+        keyExtractor={({ id }) => id}
+        renderItem={({ item }) => (
+          <ListUsers name={item.name} image={item.image} />
+        )}
+      />
     </Container>
   );
 }
