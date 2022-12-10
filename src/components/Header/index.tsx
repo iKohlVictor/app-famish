@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Container, BackButton, BackIcon, Title } from "./styles";
+import { Container, BackButton, BackIcon, Title, Content } from "./styles";
 
 type props = {
   showBackButton?: boolean;
@@ -14,8 +14,9 @@ export function Header({ showBackButton = false, title }: props) {
           <BackIcon />
         </BackButton>
       )}
-
-      <Title>{title}</Title>
+      <Content>
+        <Title>{title}</Title>
+      </Content>
     </Container>
   );
 }

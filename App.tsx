@@ -8,7 +8,7 @@ import { ThemeProvider } from "styled-components";
 
 import theme from "@theme/index";
 
-import { Users } from "@screens/Users";
+import { Menu } from "@screens/Menu";
 import { Loading } from "@components/Loading";
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -23,7 +23,7 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       />
-      {fontsLoaded ? <Users /> : <Loading />}
+      {fontsLoaded ? <Menu /> : <Loading />}
     </ThemeProvider>
   );
 }
