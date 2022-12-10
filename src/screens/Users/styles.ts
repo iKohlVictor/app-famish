@@ -7,7 +7,8 @@ export const Container = styled.View`
 
 export const Content = styled.View`
   flex: 1;
+  padding: 24px;
 `;
 export const Input = styled.View`
-  width: 70px;
+  width:50px;
 `;

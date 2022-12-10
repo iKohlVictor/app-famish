@@ -4,7 +4,7 @@ import { ButtonIcon } from "@components/ButtonIcon";
 
 import logoImage from "@assets/logo.png";
 
-import { Container, Subtitle, Logo, Content, Form } from "./styles";
+import { Container, Subtitle, Logo, Content } from "./styles";
 import { FlatButton } from "@components/Flat-Button";
 export function Login() {
   return (

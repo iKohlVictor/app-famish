@@ -8,8 +8,6 @@ export const Container = styled(TouchableOpacity)`
   height: 80px;
 
   margin-top: 10px;
-  border: 1px ${({ theme }) => theme.COLORS.GRAY_200};
-  borderRadius: 10px;
 `;
 export const Content = styled.View`
   flex-direction: row;

@@ -7,9 +7,8 @@ import { StatusBar } from "react-native";
 import { ThemeProvider } from "styled-components";
 
 import theme from "@theme/index";
-
-import { Users } from "@screens/Users";
 import { Loading } from "@components/Loading";
+import { Users } from "@screens/Users";
 export default function App() {
   const [fontsLoaded] = useFonts({
     Roboto_400Regular,

@@ -17,7 +17,7 @@ export class IUsers {
 }
 
 export function Users() {
-  const [users, setMenus] = useState<IUsers[]>([
+  const [users, setUSers] = useState<IUsers[]>([
     {
       id: "1",
       name: "Fernando Victor",
