@@ -8,7 +8,7 @@ import { ThemeProvider } from "styled-components";
 
 import theme from "@theme/index";
 import { Loading } from "@components/Loading";
-import { Users } from "@screens/Users";
+import { Request } from "@screens/Request";
 export default function App() {
   const [fontsLoaded] = useFonts({
     Roboto_400Regular,
@@ -22,7 +22,7 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       />
-      {fontsLoaded ? <Users /> : <Loading />}
+      {fontsLoaded ? <Request /> : <Loading />}
     </ThemeProvider>
   );
 }
