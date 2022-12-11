@@ -8,8 +8,8 @@ type Props = {
 };
 
 export const Container = styled(TouchableOpacity)<Props>`
-  min-height: 20px;
-  min-width: 20px;
+  min-height: 35px;
+  min-width: 35px;
   marginLeft: 10px;
 
   background-color: ${({ theme, type }) =>

@@ -9,8 +9,8 @@ ${({ theme }) => css`
     color: ${theme.COLORS.GRAY_400};
     font-family: ${theme.FONT_FAMILY.BOLD};
   `};
-  width: 30px;
-  heigth: width: 30px;
+  width: 45px;
+  heigth: 50px;
   marginLeft: 10px;
   text-align: center;
 `;
