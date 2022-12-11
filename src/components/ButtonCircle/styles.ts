@@ -8,9 +8,9 @@ type Props = {
 };
 
 export const Container = styled(TouchableOpacity)<Props>`
-  min-height: 56px;
-  min-width: 56px;
-  margin: 20px;
+  min-height: 20px;
+  min-width: 20px;
+  marginLeft: 10px;
 
   background-color: ${({ theme, type }) =>
     type === "PRIMARY"
@@ -19,7 +19,7 @@ export const Container = styled(TouchableOpacity)<Props>`
       ? theme.COLORS.GREEN_DARK
       : theme.COLORS.RED_DARK};
 
-  border-radius: 6px;
+  border-radius: 50px;
 
   justify-content: center;
   align-items: center;
