@@ -19,7 +19,7 @@ export const Container = styled(TouchableOpacity)<Props>`
       ? theme.COLORS.GREEN_DARK
       : theme.COLORS.RED_DARK};
 
-  border-radius: 50px;
+  border-radius: 100px;
 
   justify-content: center;
   align-items: center;
