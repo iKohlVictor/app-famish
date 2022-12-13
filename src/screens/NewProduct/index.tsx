@@ -25,7 +25,9 @@ export function NewProduct() {
         autoCorrect={false}
       />
       <Label>Descrição do Prato</Label>
-        <TextArea />
+        <TextArea
+        numberOfLines={15}
+        multiline={true}/>
       <Label>Preço</Label>
       <Input
         placeholder="R$"
