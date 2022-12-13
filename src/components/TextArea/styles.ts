@@ -12,9 +12,12 @@ export const Container = styled(TextInput)`
     color: ${theme.COLORS.GRAY_300};
     font-family: ${theme.FONT_FAMILY.REGULAR};
     font-size: ${theme.FONT_SIZE.MD}px;
-    flex-wrap: wrap;
+    justifyContent: flex-start
   `};
+  display:flex;
   border-radius: 6px;
   padding: 12px;
   margin-bottom: 20px;
+  height: 150px;
+  justifyContent: flex-start
 `;
