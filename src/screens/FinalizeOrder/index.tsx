@@ -7,7 +7,6 @@ import { useState } from "react";
 
 import { ListOrder } from "@components/ListOrder";
 import { Input } from "@components/Input";
-import Dropdown from 'react-bootstrap/Dropdown';
 import { Button } from "@components/Button";
 
 export class IOrder {
