@@ -16,9 +16,10 @@ type Props = TouchableOpacityProps & {
   description: string;
   price: string;
   image: ImageSourcePropType;
+  onPress:{}
 };
 
-export function ListMenu({ name, description, image, price, ...rest }: Props) {
+export function ListMenu({ name, description, image, price,...rest }: Props) {
   return (
     <Container {...rest}>
       <Content>

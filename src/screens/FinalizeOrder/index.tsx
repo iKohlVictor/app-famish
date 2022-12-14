@@ -1,4 +1,4 @@
-import { Container , Image, Content, Label } from "./styles";
+import { Container , Content, Image, Label } from "./styles";
 
 import { Header } from "@components/Header";
 
@@ -7,7 +7,8 @@ import { useState } from "react";
 
 import { ListOrder } from "@components/ListOrder";
 import { Input } from "@components/Input";
-import { Button } from "@components/Button";
+import { ButtonDouble } from "@components/ButtonDouble";
+import { useNavigation } from "@react-navigation/native";
 
 export class IOrder {
   id!: string;
@@ -16,6 +17,13 @@ export class IOrder {
 }
 
 export function FinalizeOrder() {
+  const navigation = useNavigation();
+  function handleConfirm(){
+    navigation.navigate('menu')
+  }
+  function handleContinue(){
+    navigation.navigate('menu')
+  }
   const [orders, setOrders] = useState<IOrder[]>([
     {
       id: "1",
@@ -32,17 +40,27 @@ export function FinalizeOrder() {
       name: "Prato Feito",
       url: "https://t3.ftcdn.net/jpg/04/19/14/24/360_F_419142462_eZpVD5Rkfv9ZUvsNli0Mn24umAVqg51A.jpg",
     },
+    {
+      id: "4",
+      name: "Prato Feito",
+      url: "https://t3.ftcdn.net/jpg/04/19/14/24/360_F_419142462_eZpVD5Rkfv9ZUvsNli0Mn24umAVqg51A.jpg",
+    },
+    {
+      id: "5",
+      name: "Prato Feito",
+      url: "https://t3.ftcdn.net/jpg/04/19/14/24/360_F_419142462_eZpVD5Rkfv9ZUvsNli0Mn24umAVqg51A.jpg",
+    },
   ]);
 
   return (
     <Container>
-      <Header title="Pedidos" />
+      <Header title="Meu carrinho" />
       <Content>
       <Image source={{
             uri: "https://jucisrs.rs.gov.br/upload/recortes/201707/20120923_8121_GDO.jpg",
           }}
           style={{ width: 75, height: 75}} />
-      <Label>Rua paraíba 1191, bloco b, apartamento 402</Label>
+        <Label>Rua Paraíba 1191, bloco b, apartamento 402</Label>
       </Content>
       <FlatList
         data={orders}
@@ -51,7 +69,11 @@ export function FinalizeOrder() {
           <ListOrder name={item.name} url={item.url} />
         )}
       />
-      <Button title="COnfirmar o pedido" />
+      <Content>
+      <ButtonDouble title="Continuar Comprando" type="SECONDARY" onPress={handleContinue}/>
+      <ButtonDouble title="Confirmar o pedido" />
+      </Content>
+      
     </Container>
   );
 }

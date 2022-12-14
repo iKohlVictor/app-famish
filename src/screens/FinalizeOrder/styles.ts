@@ -1,22 +1,20 @@
 import { TouchableOpacity } from "react-native";
 import styled, { css } from "styled-components/native";
+import { SafeAreaView } from "react-native";
 
-export const Container = styled.View`
+export const Container = styled(SafeAreaView)`
   flex: 1;
   background-color: ${({ theme }) => theme.COLORS.WHITE};
 `;
-
 export const Content = styled.View`
-  flex: 1;
-  padding: 24px;
-  flex-direction: row;
+flex-direction: row;
+justify-content: center;
+  align-items: center;
 `;
 export const Input = styled.View`
-  width:50px;`;
+`;
 export const Image = styled.Image`
-  margin: 13px;
-  width: 100px;
-  heigth: 100px;
+margin-left:13px;
 `;
 export const Label = styled.Text`
   ${({ theme }) => css`
@@ -24,6 +22,7 @@ export const Label = styled.Text`
     color: ${theme.COLORS.GRAY_400};
     font-family: ${theme.FONT_FAMILY.BOLD};
   `};
-  width: 70%;
-  paddingLeft: 16px;
+  margin-left: 20px;
+  max-width:250px;
 `;
+

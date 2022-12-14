@@ -9,6 +9,8 @@ import { useState } from "react";
 import prato1 from "@assets/img_porcao2.png";
 import prato2 from "@assets/img_porcao1.png";
 import prato3 from "@assets/image3.png";
+import { useNavigation } from "@react-navigation/native";
+import { Button } from "@components/Button";
 
 export class IMenu {
   id!: string;
@@ -19,6 +21,11 @@ export class IMenu {
 }
 
 export function Menu() {
+  const navigation = useNavigation();
+  function handleRequest(){
+    //navigation.navigate('request',)
+    navigation.navigate('request',{id:"1",name:"Prato completo 1",description:"description"})
+  }
   const [menus, setMenus] = useState<IMenu[]>([
     {
       id: "1",
@@ -41,12 +48,12 @@ export function Menu() {
       price: "R$ 45,00",
       image: prato3,
     },
+    
   ]);
 
   return (
     <Container>
       <Header title="Cardápio" />
-
       <FlatList
         data={menus}
         keyExtractor={({ id }) => id}
@@ -56,6 +63,7 @@ export function Menu() {
             description={item.description}
             image={item.image}
             price={item.price}
+            onPress = {handleRequest}
           />
         )}
       />

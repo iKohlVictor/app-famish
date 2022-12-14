@@ -8,15 +8,15 @@ type Props = {
 };
 
 export const Container = styled(TouchableOpacity)<Props>`
-  min-height: 56px;
-  min-width: 56px;
+  min-height: 40px;
+  width: 170px;
   margin: 10px;
 
   background-color: ${({ theme, type }) =>
     type === "PRIMARY"
       ? theme.COLORS.ORANGE_600
       : type === "SECONDARY"
-      ? theme.COLORS.GREEN_DARK
+      ? theme.COLORS.RED
       : theme.COLORS.RED_DARK};
 
   border-radius: 6px;
