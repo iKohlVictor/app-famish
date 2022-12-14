@@ -14,7 +14,7 @@ export function Login() {
     navigation.navigate('menu')
   }
   function handleNewAccount(){
-    navigation.navigate('menu')
+    navigation.navigate('newUser')
   }
 
   return (

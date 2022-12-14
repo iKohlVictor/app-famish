@@ -2,7 +2,6 @@ import { SFlatButton, SText } from "./styles";
 
 export interface IFlatButtonProps {
   label: string;
-  onPressed:null,
 }
 export function FlatButton({ label ,...rest}: IFlatButtonProps) {
   return (

@@ -24,7 +24,7 @@ export function Menu() {
   const navigation = useNavigation();
   function handleRequest(){
     //navigation.navigate('request',)
-     //navigation.navigate('request',{id:"1",name:"Prato 2",description:"description"})
+    navigation.navigate('request',{id:"1",name:"Prato completo 1",description:"description"})
   }
   const [menus, setMenus] = useState<IMenu[]>([
     {
@@ -48,6 +48,7 @@ export function Menu() {
       price: "R$ 45,00",
       image: prato3,
     },
+    
   ]);
 
   return (

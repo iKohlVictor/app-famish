@@ -3,10 +3,7 @@ export declare global{
         interface RootParamList{
             login: undefined;
             menu: undefined;
-            finalizeOrder: {
-                id:String;
-                user:number;
-            };
+            finalizeOrder: undefined;
             newProduct: undefined;
             newUser: undefined;
             request: {
