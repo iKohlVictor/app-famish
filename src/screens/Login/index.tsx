@@ -7,11 +7,20 @@ import logoImage from "@assets/logo.png";
 
 import { Container, Subtitle, Logo, Content } from "./styles";
 import { FlatButton } from "@components/Flat-Button";
+import { useState } from "react";
 export function Login() {
+  const [email,setEmail] = useState('')
+  const [senha,setSenha] = useState('')
+
   const navigation = useNavigation();
 
   function handleMenu(){
-    navigation.navigate('menu')
+    if(email=="admin"){
+      navigation.navigate('menu')
+    }else{
+      navigation.navigate('newUser')
+    }
+    
   }
   function handleNewAccount(){
     navigation.navigate('newUser')
@@ -28,9 +37,10 @@ export function Login() {
         placeholder="E-mail"
         autoCorrect={false}
         keyboardType="email-address"
+        onChangeText={setEmail}
       />
 
-      <Input placeholder="Senha" keyboardType="visible-password" />
+      <Input placeholder="Senha" keyboardType="visible-password" onChangeText={setSenha}/>
 
       <Button title="ACESSAR" onPress={handleMenu}/>
 
