@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 
 import { Container, BackButton, BackIcon, Title, Content } from "./styles";
@@ -7,10 +8,14 @@ type props = {
   title: string;
 };
 export function Header({ showBackButton = false, title }: props) {
+  const navigation = useNavigation();
+  function handleGoBack(){
+    navigation.goBack()
+  }
   return (
     <Container>
       {showBackButton && (
-        <BackButton>
+        <BackButton onPress={handleGoBack}>
           <BackIcon />
         </BackButton>
       )}

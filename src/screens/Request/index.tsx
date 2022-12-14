@@ -6,8 +6,19 @@ import { ButtonCircle } from "@components/ButtonCircle"
 import { InputQuantity } from "@components/InputQuantity"
 import { TextArea } from "@components/TextArea"
 import { Description } from "@components/ListMenu/styles";
+import { useRoute } from "@react-navigation/native";
+
+type RouteParams = {
+  id:number;
+  name:String;
+  description:String; 
+}
 
 export function Request() {
+  
+  const route =useRoute();
+  const { name } = route.params as RouteParams;
+
   return (
     <Container>
       <Header title="Cardápio" />
@@ -19,7 +30,7 @@ export function Request() {
           style={{ width: 100, height: 100 }}
         />
         <Name>
-        Prato Completo 1
+        {name}
         </Name>
       </Content>
       <Label>Quantidade</Label>
