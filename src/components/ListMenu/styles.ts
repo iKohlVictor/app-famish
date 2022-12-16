@@ -3,28 +3,26 @@ import styled, { css } from "styled-components/native";
 
 export const Container = styled(TouchableOpacity)`
   flex: 1;
-
   width: 100%;
   height: 100px;
-
   margin-top: 10px;
   border: 1px ${({ theme }) => theme.COLORS.GRAY_200};
+  justify-content: center;
 `;
 export const Content = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
-
-  padding: 16px;
+  width: 90%;
+  padding: 5px;
+  max-width: 200px;
 `;
 
 export const Information = styled.View`
   flex-direction: column;
   justify-content: space-between;
-  align-items: flex-start;
-
-  max-width: 200px;
+  max-width: 180px;
+  padding: 9px;
 `;
 export const Name = styled.Text`
   ${({ theme }) => css`
@@ -40,6 +38,7 @@ export const Description = styled.Text`
     color: ${theme.COLORS.GRAY_300};
     font-family: ${theme.FONT_FAMILY.REGULAR};
   `};
+  width: 150px;
 `;
 
 export const Price = styled.Text`
@@ -48,9 +47,12 @@ export const Price = styled.Text`
     color: ${theme.COLORS.GRAY_400};
     font-family: ${theme.FONT_FAMILY.BOLD};
   `};
+  padding:7px;
 `;
 
 export const Image = styled.Image`
-  width: 80px;
+  width: 100px;
   height: 80px;
+  align-items: center;
+  justify-content: space-between;
 `;

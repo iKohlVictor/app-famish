@@ -1,57 +1,48 @@
 import { Container , Content, Image, Label } from "./styles";
-
 import { Header } from "@components/Header";
-
 import { FlatList } from "react-native";
 import { useState } from "react";
-
 import { ListOrder } from "@components/ListOrder";
-import { Input } from "@components/Input";
 import { ButtonDouble } from "@components/ButtonDouble";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
 export class IOrder {
   id!: string;
   name!: string;
   url!: string;
+  quantity!:number;
+  comment!:String;
 }
 
 export function FinalizeOrder() {
   const navigation = useNavigation();
+  const route =useRoute();
+  type RouteParams = {
+    id:string;
+    name:string;
+    comment:String;
+    url: string;
+    quantity:number;
+  }
+  const { id } = route.params as RouteParams;
+  const { name } = route.params as RouteParams;
+  const { url } = route.params as RouteParams;
+  const { quantity } = route.params as RouteParams;
+  const { comment } = route.params as RouteParams;
+  
   function handleConfirm(){
     navigation.navigate('menu')
   }
   function handleContinue(){
     navigation.navigate('menu')
   }
-  const [orders, setOrders] = useState<IOrder[]>([
-    {
-      id: "1",
-      name: "Completo carne assada",
-      url: "https://img.freepik.com/fotos-gratis/closeup-de-carne-assada-com-molho-legumes-e-batatas-fritas-em-um-prato-sobre-a-mesa_181624-35847.jpg?w=2000",
-    },
-    {
-      id: "2",
-      name: "Prato de rico",
-      url: "https://292aa00292a014763d1b-96a84504aed2b25fc1239be8d2b61736.ssl.cf1.rackcdn.com/PostImagem/34296/4245343011717822529467532587813895733248000n_capa.jpg",
-    },
-    {
-      id: "3",
-      name: "Prato Feito",
-      url: "https://t3.ftcdn.net/jpg/04/19/14/24/360_F_419142462_eZpVD5Rkfv9ZUvsNli0Mn24umAVqg51A.jpg",
-    },
-    {
-      id: "4",
-      name: "Prato Feito",
-      url: "https://t3.ftcdn.net/jpg/04/19/14/24/360_F_419142462_eZpVD5Rkfv9ZUvsNli0Mn24umAVqg51A.jpg",
-    },
-    {
-      id: "5",
-      name: "Prato Feito",
-      url: "https://t3.ftcdn.net/jpg/04/19/14/24/360_F_419142462_eZpVD5Rkfv9ZUvsNli0Mn24umAVqg51A.jpg",
-    },
-  ]);
-
+    const [orders, setOrders] = useState<IOrder[]>([
+    ]);
+    
+    const iorder:IOrder ={      
+      id:id,name:name,url:url,quantity:quantity, comment: comment
+    }
+    orders.push(iorder)
   return (
     <Container>
       <Header title="Meu carrinho" />
@@ -66,7 +57,7 @@ export function FinalizeOrder() {
         data={orders}
         keyExtractor={({ id }) => id}
         renderItem={({ item }) => (
-          <ListOrder name={item.name} url={item.url} />
+          <ListOrder name={item.name} url={item.url} quantity = {item.quantity} comment= {item.comment}/>
         )}
       />
       <Content>
