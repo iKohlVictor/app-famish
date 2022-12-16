@@ -10,6 +10,8 @@ export class IOrder {
   id!: string;
   name!: string;
   url!: string;
+  quantity!:number;
+  comment!:String;
 }
 
 export function FinalizeOrder() {
@@ -18,12 +20,16 @@ export function FinalizeOrder() {
   type RouteParams = {
     id:string;
     name:string;
-    description:string;
+    comment:String;
     url: string;
+    quantity:number;
   }
   const { id } = route.params as RouteParams;
   const { name } = route.params as RouteParams;
   const { url } = route.params as RouteParams;
+  const { quantity } = route.params as RouteParams;
+  const { comment } = route.params as RouteParams;
+  
   function handleConfirm(){
     navigation.navigate('menu')
   }
@@ -32,8 +38,9 @@ export function FinalizeOrder() {
   }
     const [orders, setOrders] = useState<IOrder[]>([
     ]);
-    const iorder:IOrder ={
-      id:id,name:name,url:url
+    
+    const iorder:IOrder ={      
+      id:id,name:name,url:url,quantity:quantity, comment: comment
     }
     orders.push(iorder)
   return (
@@ -50,7 +57,7 @@ export function FinalizeOrder() {
         data={orders}
         keyExtractor={({ id }) => id}
         renderItem={({ item }) => (
-          <ListOrder name={item.name} url={item.url}/>
+          <ListOrder name={item.name} url={item.url} quantity = {item.quantity} comment= {item.comment}/>
         )}
       />
       <Content>

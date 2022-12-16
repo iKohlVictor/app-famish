@@ -7,7 +7,8 @@ export declare global{
                 id: String,
                 name:String,
                 url:string,
-                quantity:number
+                quantity:number,
+                comment: String;
             };
             newProduct: undefined;
             newUser: undefined;

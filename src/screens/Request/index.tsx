@@ -19,6 +19,7 @@ type RouteParams = {
 
 export function Request() {
   const [form,setQuantityForm] = useState({"quantity":0})
+  const [comment,setComment] = useState('');
 
   const route =useRoute();
   const { name } = route.params as RouteParams;
@@ -38,7 +39,7 @@ export function Request() {
     }
   }
   function handleFinalizeOrder(){
-    navigation.navigate('finalizeOrder', {id: id, name: name,url: url,quantity: form.quantity})
+    navigation.navigate('finalizeOrder', {id: id, name: name,url: url,quantity: form.quantity,comment:comment})
   }
   return (
     <>
@@ -62,7 +63,7 @@ export function Request() {
           <ButtonCircle title="+" type="PRIMARY" onPress={increment}></ButtonCircle>
       </Content>
       <Label>Observações</Label>
-        <TextArea />
+        <TextArea onChangeText={setComment}></TextArea>
 
         <Button title="Adicionar ao Carrinho" onPress={handleFinalizeOrder}/>
     </Container>
