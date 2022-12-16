@@ -3,28 +3,23 @@ import { Container, Content } from "./styles";
 import { Header } from "@components/Header";
 import { ListMenu } from "@components/ListMenu";
 
-import { FlatList, ImageSourcePropType } from "react-native";
+import { FlatList } from "react-native";
 import { useState } from "react";
-
-import prato1 from "@assets/img_porcao2.png";
-import prato2 from "@assets/img_porcao1.png";
-import prato3 from "@assets/image3.png";
 import { useNavigation } from "@react-navigation/native";
-import { Button } from "@components/Button";
 
 export class IMenu {
   id!: string;
   name!: string;
   description!: string;
   price!: string;
-  image!: ImageSourcePropType;
+  url!: string;
 }
+
 
 export function Menu() {
   const navigation = useNavigation();
-  function handleRequest(){
-    //navigation.navigate('request',)
-    navigation.navigate('request',{id:"1",name:"Prato completo 1",description:"description"})
+  function handleRequest(item:IMenu){
+    navigation.navigate('request',{id:item.id,name:item.name,description:item.description,url:item.url})
   }
   const [menus, setMenus] = useState<IMenu[]>([
     {
@@ -32,21 +27,21 @@ export function Menu() {
       name: "Prato Completo 1",
       description: "Arroz, frita, carne e salada",
       price: "R$ 35,00",
-      image: prato1,
+      url: "https://st.depositphotos.com/1003814/4626/i/450/depositphotos_46267763-stock-photo-fried-chicken-fillets.jpg",
     },
     {
       id: "2",
-      name: "Prato Completo 2",
-      description: "Arroz, fritas, peixe e salada",
+      name: "Prato Feito",
+      description: "Arroz, feijão, carne e batata",
       price: "R$ 35,00",
-      image: prato2,
+      url: "https://jcconcursos.com.br/media/uploads/noticia/prato-feito_1.jpg",
     },
     {
       id: "3",
-      name: "Porção 1",
-      description: "Carne, frango e fritas",
-      price: "R$ 45,00",
-      image: prato3,
+      name: "Comida Japonesa",
+      description: "comida Japonesa",
+      price: "R$ 115,00",
+      url: "https://www.remessaonline.com.br/blog/wp-content/uploads/2022/05/culinaria-japonesa.jpg.webp",
     },
     
   ]);
@@ -57,13 +52,13 @@ export function Menu() {
       <FlatList
         data={menus}
         keyExtractor={({ id }) => id}
-        renderItem={({ item }) => (
+        renderItem={({ item}) => (
           <ListMenu
             name={item.name}
-            description={item.description}
-            image={item.image}
+            url = {item.url} 
+            description = {item.description}
             price={item.price}
-            onPress = {handleRequest}
+            onPress = {()=>handleRequest(item)}
           />
         )}
       />

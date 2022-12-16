@@ -11,9 +11,10 @@ import { useNavigation } from "@react-navigation/native";
 import React,{useState} from "react";
 
 type RouteParams = {
-  id:number;
+  id:String;
   name:String;
-  description:String; 
+  description:String;
+  url: string;
 }
 
 export function Request() {
@@ -21,6 +22,8 @@ export function Request() {
 
   const route =useRoute();
   const { name } = route.params as RouteParams;
+  const { url } = route.params as RouteParams;
+  const { id } = route.params as RouteParams;
   const navigation = useNavigation();
 
   function increment(){
@@ -35,7 +38,7 @@ export function Request() {
     }
   }
   function handleFinalizeOrder(){
-    navigation.navigate('finalizeOrder')
+    navigation.navigate('finalizeOrder', {id: id, name: name,url: url,quantity: form.quantity})
   }
   return (
     <>
@@ -44,9 +47,9 @@ export function Request() {
       <Content>
         <Image
           source={{
-            uri: "https://www.tupi.fm/wp-content/uploads/2022/07/din1135-sustenta5.jpg",
+            uri: url,
           }}
-          style={{ width: 100, height: 100 }}
+          style={{ width: 100, height: 70 }}
         />
         <Name>
         {name}

@@ -15,15 +15,18 @@ type Props = TouchableOpacityProps & {
   name: string;
   description: string;
   price: string;
-  image: ImageSourcePropType;
-  onPress:{}
+  url: string;
+  onPress: Object;
 };
 
-export function ListMenu({ name, description, image, price,...rest }: Props) {
+export function ListMenu({ name, description, url, price,...rest }: Props) {
   return (
     <Container {...rest}>
       <Content>
-        <Image source={image} />
+      <Image source={{
+            uri: url,
+          }}
+          style={{ width: 110, height: 70 }} />
         <Information>
           <Name>{name}</Name>
           <Description>{description}</Description>

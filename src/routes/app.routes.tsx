@@ -1,5 +1,6 @@
 import React from 'react';
 import { createBottomTabNavigator }from '@react-navigation/bottom-tabs'
+import { createNativeStackNavigator }from '@react-navigation/native-stack'
 import {Entypo, Feather} from '@expo/vector-icons';
 import { Menu } from '@screens/Menu';
 import { FinalizeOrder } from '@screens/FinalizeOrder';
@@ -11,9 +12,9 @@ import { Users } from '@screens/Users';
 
 const Tab = createBottomTabNavigator();
 
-export function AppRoutes(){
+export function HomeStack(){
     return(
-        <Tab.Navigator initialRouteName='Menu' screenOptions={{headerShown:false,tabBarStyle:{
+        <Tab.Navigator initialRouteName='Login' screenOptions={{headerShown:false,tabBarStyle:{
             backgroundColor: '#FC5217',
             borderTopColor: 'transparent'
         },
@@ -31,24 +32,13 @@ export function AppRoutes(){
                 {
                     tabBarIcon:({size,color})=>(
                         <Entypo name = "user" size = {size} color = {color}/>
-                    )
+                    ), 
                 }
             }
             />
-            <Tab.Screen
-            name = "MENU"
-            component={Menu}
-            options={
-                {
-                    tabBarIcon:({size,color})=>(
-                        <Entypo name = "menu" size = {size} color = {color}/>
-                    )
-                }
-            }
-            />
-            <Tab.Screen
-            name = "PEDIDOS"
-            component={Users}
+            <Tab.Screen 
+            name = "CARRINHO"
+            component={FinalizeOrder}
             options={
                 {
                     tabBarIcon:({size,color})=>(
@@ -60,3 +50,42 @@ export function AppRoutes(){
         </Tab.Navigator>
     );
 }
+
+
+const {Navigator,Screen} = createNativeStackNavigator();
+
+export function AppRoutes(){
+    return(
+        <Navigator initialRouteName='login' screenOptions={{headerShown:false}}>
+            <Screen
+            name = "menu"
+            component={Menu}
+            />
+            <Screen
+            name = "finalizeOrder"
+            component={FinalizeOrder}
+            />
+            <Screen
+            name = "login"
+            component={Login}
+            />
+            <Screen
+            name = "newProduct"
+            component={NewProduct}
+            />
+            <Screen
+            name = "newUser"
+            component={NewUser}
+            />
+            <Screen
+            name = "request"
+            component={Request}
+            />
+            <Screen
+            name = "users"
+            component={Users}
+            />
+        </Navigator>
+    );
+}
+export default AppRoutes;

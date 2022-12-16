@@ -31,6 +31,15 @@ export const Name = styled.Text`
   `};
   marginLeft: 10px;
 `;
+export const Label = styled.View`
+  ${({ theme }) => css`
+    font-size: ${theme.FONT_SIZE.MD}px;
+    color: ${theme.COLORS.GRAY_400};
+    font-family: ${theme.FONT_FAMILY.BOLD};
+  `};
+  marginLeft: 10px;
+  flex:1;
+`;
 
 export const Image = styled.Image`
   width: 45px;

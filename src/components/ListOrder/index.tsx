@@ -1,5 +1,5 @@
 import { TouchableOpacityProps, ImageSourcePropType } from "react-native";
-import { Container, Content, Information, Name, Image } from "./styles";
+import { Container, Content, Information, Name, Image , Label} from "./styles";
 
 import { Divider } from "@components/Divider";
 import { Input } from "@components/Input";
@@ -16,7 +16,7 @@ export function ListOrder({ name, url, ...rest }: Props) {
         <Image source={{
             uri: url,
           }}
-          style={{ width: 100, height: 100 }} />
+          style={{ width: 100, height: 80 }} />
         <Name>{name}</Name>
         <Information>
         </Information>

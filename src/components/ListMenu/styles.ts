@@ -15,7 +15,6 @@ export const Content = styled.View`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-
   padding: 16px;
 `;
 
@@ -23,7 +22,6 @@ export const Information = styled.View`
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-
   max-width: 200px;
 `;
 export const Name = styled.Text`
@@ -51,6 +49,6 @@ export const Price = styled.Text`
 `;
 
 export const Image = styled.Image`
-  width: 80px;
+  width: 100px;
   height: 80px;
 `;
