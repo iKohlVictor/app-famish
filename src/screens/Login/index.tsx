@@ -8,6 +8,7 @@ import logoImage from "@assets/logo.png";
 import { Container, Subtitle, Logo, Content } from "./styles";
 import { FlatButton } from "@components/Flat-Button";
 import { useState } from "react";
+import { ButtonFlat } from "@components/ButtonFlat";
 
 export function Login() {
 
@@ -61,8 +62,7 @@ export function Login() {
       <Input placeholder="Senha" keyboardType="visible-password" onChangeText={setSenha}/>
 
       <Button title="ACESSAR" onPress={handleMenu}/>
-
-      <FlatButton label="Esqueceu sua senha?"/>
+      <ButtonFlat title="CRIE SUA CONTA" onPress={handleNewAccount}></ButtonFlat>
     </Container>
   );
 }

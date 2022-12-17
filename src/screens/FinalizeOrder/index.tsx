@@ -1,10 +1,13 @@
 import { Container , Content, Image, Label } from "./styles";
 import { Header } from "@components/Header";
 import { FlatList } from "react-native";
-import { useState } from "react";
+import React, { useState } from "react";
 import { ListOrder } from "@components/ListOrder";
 import { ButtonDouble } from "@components/ButtonDouble";
 import { useNavigation, useRoute } from "@react-navigation/native";
+import { Alert } from "react-native";
+
+
 
 export class IOrder {
   id!: string;
@@ -15,6 +18,7 @@ export class IOrder {
 }
 
 export function FinalizeOrder() {
+
   const navigation = useNavigation();
   const route =useRoute();
   type RouteParams = {
@@ -35,6 +39,31 @@ export function FinalizeOrder() {
   }
   function handleContinue(){
     navigation.navigate('menu')
+  }
+  function handleConfirmRequest(){
+    Alert.alert(
+      "Concluído",
+      "Pedido realizado com sucesso!",
+      [
+        {
+          text:"Ir ao menu",
+          style:"cancel",
+          onPress() {
+            navigation.navigate('menu')
+          },
+        },
+        {
+          text:"Acompanhar Pedido",
+          style:"cancel",
+          onPress() {
+            navigation.navigate('trackOrder')
+          },
+        },
+      ],
+      {
+        cancelable:true
+      }
+    )
   }
     const [orders, setOrders] = useState<IOrder[]>([
     ]);
@@ -62,7 +91,7 @@ export function FinalizeOrder() {
       />
       <Content>
       <ButtonDouble title="Continuar Comprando" type="SECONDARY" onPress={handleContinue}/>
-      <ButtonDouble title="Confirmar o pedido" />
+      <ButtonDouble title="Confirmar o pedido" onPress={handleConfirmRequest}/>
       </Content>
       
     </Container>

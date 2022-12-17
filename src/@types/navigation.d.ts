@@ -19,6 +19,7 @@ export declare global{
                 url: string;
             };
             users: undefined;
+            trackOrder: undefined;
         }
     }
 }
