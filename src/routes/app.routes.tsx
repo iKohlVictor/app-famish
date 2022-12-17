@@ -9,6 +9,7 @@ import { NewProduct } from '@screens/NewProduct';
 import { NewUser } from '@screens/NewUser';
 import { Request } from '@screens/Request';
 import { Users } from '@screens/Users';
+import { TrackOrder } from '@screens/TrackOrder'
 
 const Tab = createBottomTabNavigator();
 
@@ -84,6 +85,10 @@ export function AppRoutes(){
             <Screen
             name = "users"
             component={Users}
+            />
+            <Screen
+            name="trackOrder"
+            component={TrackOrder}
             />
         </Navigator>
     );
