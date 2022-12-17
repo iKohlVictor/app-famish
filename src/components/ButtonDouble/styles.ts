@@ -16,11 +16,10 @@ export const Container = styled(TouchableOpacity)<Props>`
     type === "PRIMARY"
       ? theme.COLORS.ORANGE_600
       : type === "SECONDARY"
-      ? theme.COLORS.RED
-      : theme.COLORS.RED_DARK};
+      ? theme.COLORS.GREEN
+      : theme.COLORS.GREEN_DARK};
 
   border-radius: 6px;
-
   justify-content: center;
   align-items: center;
 `;
