@@ -4,8 +4,9 @@ import { Header } from "@components/Header";
 import { ListMenu } from "@components/ListMenu";
 
 import { FlatList } from "react-native";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
+import { HomeStack } from "../../routes/stackNavigator.routes";
 
 export class IMenu {
   id!: string;
