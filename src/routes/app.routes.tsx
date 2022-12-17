@@ -11,48 +11,6 @@ import { Request } from '@screens/Request';
 import { Users } from '@screens/Users';
 import { TrackOrder } from '@screens/TrackOrder'
 
-const Tab = createBottomTabNavigator();
-
-export function HomeStack(){
-    return(
-        <Tab.Navigator initialRouteName='Login' screenOptions={{headerShown:false,tabBarStyle:{
-            backgroundColor: '#FC5217',
-            borderTopColor: 'transparent'
-        },
-        tabBarActiveTintColor:'#FFF',
-        tabBarInactiveBackgroundColor: '#21130d',
-        tabBarItemStyle:{
-            paddingBottom:3,
-            paddingTop:3,
-        }
-        }}>
-            <Tab.Screen
-            name = "PERFIL"
-            component={Users}
-            options={
-                {
-                    tabBarIcon:({size,color})=>(
-                        <Entypo name = "user" size = {size} color = {color}/>
-                    ), 
-                }
-            }
-            />
-            <Tab.Screen 
-            name = "CARRINHO"
-            component={FinalizeOrder}
-            options={
-                {
-                    tabBarIcon:({size,color})=>(
-                        <Entypo name = "shopping-cart" size = {size} color = {color}/>
-                    )
-                }
-            }
-            />
-        </Tab.Navigator>
-    );
-}
-
-
 const {Navigator,Screen} = createNativeStackNavigator();
 
 export function AppRoutes(){

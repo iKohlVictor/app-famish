@@ -44,7 +44,7 @@ export function Request() {
   return (
     <>
     <Container>
-      <Header title="Cardápio" />
+      <Header title="Detalhes do Prato" />
       <Content>
         <Image
           source={{
