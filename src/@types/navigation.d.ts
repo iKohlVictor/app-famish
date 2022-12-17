@@ -20,6 +20,7 @@ export declare global{
             };
             users: undefined;
             trackOrder: undefined;
+            myProfile: undefined;
         }
     }
 }
