@@ -4,65 +4,73 @@ import { Header } from "@components/Header";
 import { ListMenu } from "@components/ListMenu";
 
 import { FlatList } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { HomeStack } from "../../routes/stackNavigator.routes";
+import { Loading } from "@components/Loading";
+import { apiConnection } from "../../core/api";
 
-export class IMenu {
-  id!: string;
-  name!: string;
-  description!: string;
-  price!: string;
-  url!: string;
+export interface IProducts {
+  id: string;
+  name: string;
+  description: string;
+  price: string;
+  imageUri: string;
+
+  createdAt: Date;
+  updatedAt: Date;
 }
 
-
 export function Menu() {
+  const [menus, setMenus] = useState<IProducts[]>([]);
+  const [isProductLoaded, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(false);
+    apiConnection
+      .get("/product")
+      .then((response) => {
+        setMenus(response.data);
+      })
+      .catch(() => {
+        console.log("error loading products");
+      })
+      .finally(() => {
+        setLoading(true);
+      });
+  }, []);
+
   const navigation = useNavigation();
-  function handleRequest(item:IMenu){
-    navigation.navigate('request',{id:item.id,name:item.name,description:item.description,url:item.url})
+
+  function handleRequest(item: IProducts) {
+    navigation.navigate("request", {
+      id: item.id,
+      name: item.name,
+      description: item.description,
+      url: item.imageUri,
+    });
   }
-  const [menus, setMenus] = useState<IMenu[]>([
-    {
-      id: "1",
-      name: "Prato Completo 1",
-      description: "Arroz, frita, carne e salada",
-      price: "R$ 35,00",
-      url: "https://st.depositphotos.com/1003814/4626/i/450/depositphotos_46267763-stock-photo-fried-chicken-fillets.jpg",
-    },
-    {
-      id: "2",
-      name: "Prato Feito",
-      description: "Arroz, feijão, carne e batata",
-      price: "R$ 35,00",
-      url: "https://jcconcursos.com.br/media/uploads/noticia/prato-feito_1.jpg",
-    },
-    {
-      id: "3",
-      name: "Comida Japonesa",
-      description: "comida Japonesa",
-      price: "R$ 115,00",
-      url: "https://www.remessaonline.com.br/blog/wp-content/uploads/2022/05/culinaria-japonesa.jpg.webp",
-    },
-    
-  ]);
 
   return (
     <Container>
       <Header title="Cardápio" />
-      <FlatList
-        data={menus}
-        keyExtractor={({ id }) => id}
-        renderItem={({ item}) => (
-          <ListMenu
-            name={item.name}
-            url = {item.url} 
-            description = {item.description}
-            price={item.price}
-            onPress = {()=>handleRequest(item)}
-          />
-        )}
-      />
+      {isProductLoaded ? (
+        <FlatList
+          data={menus}
+          keyExtractor={({ id }) => id}
+          renderItem={({ item }) => (
+            <ListMenu
+              name={item.name}
+              url={item.imageUri}
+              description={item.description}
+              price={item.price}
+              onPress={() => handleRequest(item)}
+            />
+          )}
+        />
+      ) : (
+        <Loading />
+      )}
     </Container>
   );
 }

@@ -9,40 +9,49 @@ import { Container, Subtitle, Logo, Content } from "./styles";
 import { FlatButton } from "@components/Flat-Button";
 import { useState } from "react";
 import { ButtonFlat } from "@components/ButtonFlat";
-
+import { apiConnection } from "../../core/api";
 export function Login() {
-
-  const showError = ()=>{
+  const showError = () => {
     Alert.alert(
       "Error",
       "Usuário ou senha inválido!",
       [
         {
-          text:"Tentar Novamente",
-          style:"cancel",
+          text: "Tentar Novamente",
+          style: "cancel",
         },
       ],
       {
-        cancelable:true
+        cancelable: true,
       }
-    )
-  }
+    );
+  };
 
-  const [email,setEmail] = useState('')
-  const [senha,setSenha] = useState('')
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
 
   const navigation = useNavigation();
 
-  function handleMenu(){
-    if(email=="Admin"){
-      navigation.navigate('menu')
-    }else{
-      showError();
+  const handleSubmit = async () => {
+    const isValidUser = await apiConnection
+      .post("/auth/login", {
+        email,
+        password: senha,
+      })
+      .then((response) => response.data)
+      .catch((error) => {
+        if (error.response.status === 401) {
+          showError();
+        }
+      });
+
+    if (isValidUser) {
+      navigation.navigate("menu");
     }
-    
-  }
-  function handleNewAccount(){
-    navigation.navigate('newUser')
+  };
+
+  function handleNewAccount() {
+    navigation.navigate("newUser");
   }
 
   return (
@@ -59,10 +68,17 @@ export function Login() {
         onChangeText={setEmail}
       />
 
-      <Input placeholder="Senha" keyboardType="visible-password" onChangeText={setSenha}/>
+      <Input
+        placeholder="Senha"
+        keyboardType="visible-password"
+        onChangeText={setSenha}
+      />
 
-      <Button title="ACESSAR" onPress={handleMenu}/>
-      <ButtonFlat title="CRIE SUA CONTA" onPress={handleNewAccount}></ButtonFlat>
+      <Button title="ACESSAR" onPress={handleSubmit} />
+      <ButtonFlat
+        title="CRIE SUA CONTA"
+        onPress={handleNewAccount}
+      ></ButtonFlat>
     </Container>
   );
 }
