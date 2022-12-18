@@ -10,6 +10,7 @@ import { NewUser } from '@screens/NewUser';
 import { Request } from '@screens/Request';
 import { Users } from '@screens/Users';
 import { TrackOrder } from '@screens/TrackOrder'
+import { MyProfile } from '@screens/MyProfile';
 
 const {Navigator,Screen} = createNativeStackNavigator();
 
@@ -47,6 +48,10 @@ export function AppRoutes(){
             <Screen
             name="trackOrder"
             component={TrackOrder}
+            />
+            <Screen
+            name="myProfile"
+            component={MyProfile}
             />
         </Navigator>
     );

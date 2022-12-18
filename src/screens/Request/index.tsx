@@ -18,7 +18,7 @@ type RouteParams = {
 }
 
 export function Request() {
-  const [form,setQuantityForm] = useState({"quantity":0})
+  const [form,setQuantityForm] = useState({"quantity":1})
   const [comment,setComment] = useState('');
 
   const route =useRoute();
@@ -32,7 +32,7 @@ export function Request() {
     setQuantityForm({"quantity":newQuantity});
   }
   function decrement(){
-    if(form.quantity>0)
+    if(form.quantity>1)
     {
       const newQuantity = form.quantity-1;
       setQuantityForm({"quantity":newQuantity});
