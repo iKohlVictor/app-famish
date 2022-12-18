@@ -9,8 +9,6 @@ import {
   Price,
 } from "./styles";
 
-import { Divider } from "@components/Divider";
-
 type Props = TouchableOpacityProps & {
   name: string;
   description: string;
@@ -19,19 +17,21 @@ type Props = TouchableOpacityProps & {
   onPress: Object;
 };
 
-export function ListMenu({ name, description, url, price,...rest }: Props) {
+export function ListMenu({ name, description, url, price, ...rest }: Props) {
   return (
     <Container {...rest}>
       <Content>
-      <Image source={{
+        <Image
+          source={{
             uri: url,
           }}
-          style={{ width: 110, height: 70 }} />
+          style={{ width: 110, height: 70 }}
+        />
         <Information>
           <Name>{name}</Name>
           <Description>{description}</Description>
         </Information>
-        <Price>{price}</Price>
+        <Price>R$ {price}</Price>
       </Content>
     </Container>
   );
