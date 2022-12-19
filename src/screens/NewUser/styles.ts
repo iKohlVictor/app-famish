@@ -7,8 +7,12 @@ export const Container = styled(SafeAreaView)`
   background-color: ${({ theme }) => theme.COLORS.WHITE};
 `;
 
-export const Content = styled.View`
+export const Content = styled.KeyboardAvoidingView`
   flex: 1;
-  padding: 24px;
+  padding: 16px;
   justify-content: space-between;
+`;
+
+export const ScrollViewForm = styled.ScrollView`
+  width: 100%;
 `;
