@@ -9,6 +9,7 @@ import user from "@assets/userIcon.png";
 import { ListUsers } from "@components/ListUsers";
 import { Content } from "@screens/Login/styles";
 import { Input } from "@components/Input";
+import { TabNivagator } from "@components/TabNavigator";
 
 export class IUsers {
   id!: string;
@@ -47,6 +48,7 @@ export function Users() {
           <ListUsers name={item.name} image={item.image} />
         )}
       />
+      <TabNivagator/>
     </Container>
   );
 }
