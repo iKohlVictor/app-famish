@@ -4,6 +4,7 @@ import { Input } from "@components/Input";
 import { Header } from "@components/Header";
 import { Button } from "@components/Button";
 import { useNavigation } from "@react-navigation/native";
+import { TabNivagator } from "@components/TabNavigator";
 
 export function MyProfile() {
   const navigation = useNavigation();
@@ -27,6 +28,7 @@ export function MyProfile() {
         <Button title="Editar" type="SECONDARY" />
         <Button title="Cancelar" type="WARN" onPress={handleLogin}/>
       </Content>
+      <TabNivagator/>
     </Container>
   );
 }

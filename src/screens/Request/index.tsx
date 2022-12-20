@@ -9,6 +9,7 @@ import { useRoute } from "@react-navigation/native";
 import { useNavigation } from "@react-navigation/native";
 
 import React,{useState} from "react";
+import { TabNivagator } from "@components/TabNavigator";
 
 type RouteParams = {
   id:String;
@@ -66,6 +67,7 @@ export function Request() {
         <TextArea onChangeText={setComment}></TextArea>
 
         <Button title="Adicionar ao Carrinho" onPress={handleFinalizeOrder}/>
+        <TabNivagator/>
     </Container>
     </>
   );
