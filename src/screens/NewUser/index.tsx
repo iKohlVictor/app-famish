@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 
 import { apiConnection } from "../../core/api";
 import { Alert } from "react-native";
+import { TabNivagator } from "@components/TabNavigator";
 
 export const showError = () => {
   Alert.alert(
@@ -146,6 +147,7 @@ export function NewUser() {
           <Button title="Cancelar" type="WARN" onPress={handleLogin} />
         </ScrollViewForm>
       </Content>
+      <TabNivagator/>
     </Container>
   );
 }

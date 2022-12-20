@@ -6,6 +6,7 @@ import { ListOrder } from "@components/ListOrder";
 import { ButtonDouble } from "@components/ButtonDouble";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { Alert } from "react-native";
+import { TabNivagator } from "@components/TabNavigator";
 
 
 
@@ -93,7 +94,7 @@ export function FinalizeOrder() {
       <ButtonDouble title="Continuar Comprando" type="SECONDARY" onPress={handleContinue}/>
       <ButtonDouble title="Confirmar o pedido" onPress={handleConfirmRequest}/>
       </Content>
-      
+      <TabNivagator/>
     </Container>
   );
 }

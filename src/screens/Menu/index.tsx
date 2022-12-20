@@ -9,6 +9,11 @@ import { useNavigation } from "@react-navigation/native";
 import { HomeStack } from "../../routes/stackNavigator.routes";
 import { Loading } from "@components/Loading";
 import { apiConnection } from "../../core/api";
+import { TabNivagator } from "@components/TabNavigator";
+
+import account from "../../assets/myAccount.png";
+import menu from "../../assets/menu.png";
+import request from "../../assets/pedidos.png";
 
 export interface IProducts {
   id: string;
@@ -50,6 +55,11 @@ export function Menu() {
       url: item.imageUri,
     });
   }
+  function handleProfile() {
+    console.log('entrei aqui');
+    
+    navigation.navigate("myProfile");
+  }
 
   return (
     <Container>
@@ -71,6 +81,7 @@ export function Menu() {
       ) : (
         <Loading />
       )}
+      <TabNivagator/>
     </Container>
   );
 }

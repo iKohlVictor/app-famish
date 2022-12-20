@@ -7,6 +7,7 @@ import { FlatList } from "react-native";
 import { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { Button } from "@components/Button";
+import { TabNivagator } from "@components/TabNavigator";
 
 export class IMenu {
   id!: string;
@@ -45,6 +46,7 @@ export function TrackOrder() {
         )}
       />
       <Button title="Voltar ao menu" onPress={handleMenu}></Button>
+      <TabNivagator/>
     </Container>
   );
 }

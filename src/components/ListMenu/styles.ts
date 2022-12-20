@@ -4,10 +4,10 @@ import styled, { css } from "styled-components/native";
 export const Container = styled(TouchableOpacity)`
   flex: 1;
   width: 100%;
-  height: 100px;
   margin-top: 10px;
   border: 1px ${({ theme }) => theme.COLORS.GRAY_200};
   justify-content: center;
+  min-heigth: 100%
 `;
 export const Content = styled.View`
   flex-direction: row;
@@ -16,6 +16,7 @@ export const Content = styled.View`
   width: 90%;
   padding: 5px;
   max-width: 200px;
+  min-heigth: 100%
 `;
 
 export const Information = styled.View`
@@ -23,6 +24,7 @@ export const Information = styled.View`
   justify-content: space-between;
   max-width: 180px;
   padding: 9px;
+  min-heigth: 100%
 `;
 export const Name = styled.Text`
   ${({ theme }) => css`
