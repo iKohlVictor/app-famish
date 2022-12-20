@@ -24,6 +24,7 @@ export function ListTrack({ name, description, price,...rest }: Props) {
           <Name>{name}</Name>
           <Description>{description}</Description>
         </Information>
+        <Description>Em andamento</Description>
         <Price>{price}</Price>
       </Content>
     </Container>

@@ -19,11 +19,11 @@ export function MyProfile() {
         <Label>Telefone:</Label>
         <Input value="38991341257" disableFullscreenUI/>
         <Label>Nome:</Label>
-        <Input placeholder="Nome" />
+        <Input placeholder="Nome" value="Vinicius Fonseca" />
         <Label>Email:</Label>
-        <Input placeholder="E-mail" />
+        <Input placeholder="E-mail" value="vinicius@hotmail.com"/>
         <Label>Endereço(completo):</Label>
-        <Input placeholder="Endereço" />
+        <Input placeholder="Endereço" value="Rua Argentina 1191"/>
 
         <Button title="Editar" type="SECONDARY" />
         <Button title="Cancelar" type="WARN" onPress={handleLogin}/>

@@ -38,7 +38,7 @@ export const Description = styled.Text`
     color: ${theme.COLORS.GRAY_300};
     font-family: ${theme.FONT_FAMILY.REGULAR};
   `};
-  width: 150px;
+  width: 125px;
 `;
 
 export const Price = styled.Text`
@@ -48,7 +48,7 @@ export const Price = styled.Text`
     font-family: ${theme.FONT_FAMILY.BOLD};
   `};
   padding:7px;
-  margin-left:35px;
+  margin-left: 15px;
 `;
 
 export const Image = styled.Image`
