@@ -39,9 +39,9 @@ export function TrackOrder() {
         keyExtractor={({ id }) => id}
         renderItem={({ item}) => (
           <ListTrack
-            name={item.name}
-            description = {item.description}
-            price={item.price}
+            name="x-salada"
+            description = "x-saudável"
+            price="R$ 12"
           />
         )}
       />
